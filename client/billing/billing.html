@@ -1,5 +1,29 @@
 <template name="billing">
 	<div>
-		Billing
+		{{ merchant}}
+	</div>
+	<div>
+		{{ merchantLogo}}
+	</div>
+	<div>
+		{{ rate}}
+	</div>
+	<div>
+		Amount <input type="number" name="amount">
+	</div>
+	<div>
+		<input type="radio" name="tip" value="5"> 5%
+		<input type="radio" name="tip" value="10"> 10%
+		<input type="radio" name="tip" value="15"> 15%
+		<input type="radio" name="tip" value="20"> 20%
+	</div>
+	<div>
+		{{ qrCode}}
+	</div>
+	<div>
+		{{ address}}
+	</div>
+	<div>
+		{{ status}}
 	</div>
 </template>
