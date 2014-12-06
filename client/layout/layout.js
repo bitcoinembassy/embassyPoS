@@ -9,9 +9,4 @@ if (Meteor.isClient){
 
   Template.layout.helpers(login_functions);
 
-  Template.layout.rendered = function()
-  {
-    Accounts._loginButtonsSession.set('dropdownVisible', true);
-  };
-
 }
