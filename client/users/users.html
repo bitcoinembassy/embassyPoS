@@ -1,0 +1,32 @@
+<template name="users">
+	<div>
+
+		Users<br>
+
+		<table border=1>
+
+			<tr>
+				<td>Name</td>
+				<td>Status</td>
+				<td>View user</td>
+				<td>Remove user</td>
+			</tr>
+
+		{{#each users}}
+			<tr>
+				<td>{{ userName}}</td>
+				<td>{{ userStatus}}</td>
+				<td><input type="button" name="viewUser" value="View user"></td>
+				<td><input type="button" name="deleteUser" value="Delete user"></td>
+			</tr>
+		{{else}}
+			<tr><td colspan=4>No users found.</td></tr>
+		{{/each}}
+		
+		</table>
+
+	</div>
+	<div>
+		<input type="button" name="addUser" value="Add new user">
+	</div>
+</template>

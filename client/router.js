@@ -21,3 +21,7 @@ Router.map(function(){
 Router.map(function(){
 	this.route('merchants', {path:'/merchants'});
 });
+
+Router.map(function(){
+	this.route('users', {path:'/users'});
+});
