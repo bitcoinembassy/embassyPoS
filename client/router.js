@@ -19,5 +19,17 @@ Router.map(function(){
 });
 
 Router.map(function(){
+	this.route('users', {path:'/users'});
+});
+
+Router.map(function(){
 	this.route('merchants', {path:'/merchants'});
+});
+
+Router.map(function(){
+	this.route('viewUser', {path:'/viewUser'});
+});
+
+Router.map(function(){
+	this.route('viewMerchant', {path:'/viewMerchant'});
 });
