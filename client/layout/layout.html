@@ -1,26 +1,25 @@
 <template name="layout">
-	<div class="header" align="center">
-		Welcome to Coinbassy Point of Sale
-	</div>
+	{{> header}}
 
-	<div align="center">
-		{{> loginButtons}}
-	</div>
-
-	{{#if loggedin}}
+	<div class="container">
+		<h1 align="center">
+			Welcome to Coinbassy Point of Sale
+		</h1>
 
 		<div align="center">
-			{{>menu}}
+			{{> loginButtons}}
 		</div>
 
-		<div align="center">
-			{{>yield}}
+		{{#if loggedin}}
+
+			<div align="center">
+				{{>yield}}
+			</div>
+
+		{{/if}}
+
+		<div class="header" align="center">
+			2014 - All rights reserved
 		</div>
-
-	{{/if}}
-
-	<div class="header" align="center">
-		2014 - All rights reserved
 	</div>
-	
 </template>
