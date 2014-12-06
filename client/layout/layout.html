@@ -1,0 +1,26 @@
+<template name="layout">
+	<div class="header" align="center">
+		Welcome to Coinbassy Point of Sale
+	</div>
+
+	<div align="center">
+		{{> loginButtons}}
+	</div>
+
+	{{#if loggedin}}
+
+		<div align="center">
+			{{>menu}}
+		</div>
+
+		<div align="center">
+			{{>yield}}
+		</div>
+
+	{{/if}}
+
+	<div class="header" align="center">
+		2014 - All rights reserved
+	</div>
+	
+</template>
