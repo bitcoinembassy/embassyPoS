@@ -19,8 +19,9 @@
 		<div class="form-group">
 			<label for="units">Display units</label>
 			<select class="form-control" id="units">
-				<option value="btc">BTC</option>
-				<option value="bits">Bits</option>
+				{{#each unitTypes}}
+					<option value="{{ value}}" {{ isSelected}}>{{ caption}}</option>
+				{{/each}}
 			</select>
 		</div>
 		<button type="button" class="btn btn-default" id="saveChanges">Save changes</button>
