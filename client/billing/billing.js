@@ -44,7 +44,7 @@ if (Meteor.isClient) {
 	});
 
   Template.billing.rendered = function(){
-    $('#qr').qrcode({text: 'bitcoin:1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK?amount=0.00000000',width: 200,height: 200,});
+    $('#qr').qrcode({text: 'bitcoin:1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK?amount=0.00000000', width: 300, height: 300});
   };
 
   Template.billing.events({

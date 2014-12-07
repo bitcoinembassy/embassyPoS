@@ -1,32 +1,27 @@
 <template name="merchants">
-	<div>
+		<h1>Merchants</h1>
 
-		Merchants<br>
-
-		<table border=1>
-
-			<tr>
-				<td>Name</td>
-				<td>Status</td>
-				<td>View merchant</td>
-				<td>Remove merchant</td>
-			</tr>
-
-		{{#each merchant}}
-			<tr>
-				<td>{{ merchantName}}</td>
-				<td>{{ merchantStatus}}</td>
-				<td><input type="button" name="viewMerchant" value="View merchant"></td>
-				<td><input type="button" name="deleteMerchant" value="Delete merchant"></td>
-			</tr>
-		{{else}}
-			<tr><td colspan=4>No merchants found.</td></tr>
-		{{/each}}
-		
-		</table>
-
-	</div>
-	<div>
-		<input type="button" name="addMerchant" value="Add new merchant">
-	</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Status</td>
+					<td>View merchant</td>
+					<td>Remove merchant</td>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each merchant}}
+					<tr>
+						<td>{{ merchantName}}</td>
+						<td>{{ merchantStatus}}</td>
+						<td><input type="button" name="viewMerchant" value="View merchant"></td>
+						<td><input type="button" name="deleteMerchant" value="Delete merchant"></td>
+					</tr>
+				{{else}}
+					<tr><td colspan=4>No merchants found.</td></tr>
+				{{/each}}
+			</tbody>
+	</table>
+	<button type="button" class="btn btn-default" name="addMerchant">Add new merchant</button>
 </template>
