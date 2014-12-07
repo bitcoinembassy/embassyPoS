@@ -1,26 +1,27 @@
 <template name="settings">
-	<h1>Settings</h1>
-	<div>
-		Merchant name<br>
-		<input type="text" name="merchantName" id="merchantName">
+	<div class="page-header">
+		<h1>Settings</h1>
 	</div>
-	<div>
-		Merchant logo (url)<br>
-		<input type="text" name="merchantLogo" id="merchantLogo">
-	</div>
-	<div>
-		Commission / Discount<br>
-		<input type="number" name="commission" id="commission">
-	</div>
-	<div>
-		Display units<br>
-		<select name="units" id="units">
-		  <option value="btc">BTC</option>
-		  <option value="bits">Bits</option>
-		</select>
-	</div><br>
-	<div>
-		<input type="button" name="saveChanges" id="saveChanges" value="Save changes">
-	</div><br>
-
+	<form role="form">
+		<div class="form-group">
+			<label for="merchantName">Merchant name</label>
+			<input type="text" class="form-control" id="merchantName">
+		</div>
+		<div class="form-group">
+			<label for="merchantLogo">Merchant logo (url)</label>
+			<input type="text" class="form-control" id="merchantLogo">
+		</div>
+		<div class="form-group">
+			<label for="commission">Commission / Discount</label>
+			<input type="number" class="form-control" id="commission">
+		</div>
+		<div class="form-group">
+			<label for="units">Display units</label>
+			<select class="form-control" id="units">
+				<option value="btc">BTC</option>
+				<option value="bits">Bits</option>
+			</select>
+		</div>
+		<button type="button" class="btn btn-default" id="saveChanges">Save changes</button>
+	</form>
 </template>
