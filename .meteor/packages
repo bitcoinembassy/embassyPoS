@@ -11,9 +11,7 @@ accounts-password
 accounts-ui-unstyled
 mizzao:bootstrap-3
 steeve:jquery-qrcode
-aldeed:autoform
 aldeed:collection2
 autopublish
 alanning:roles
 steeve:single-page-login
-

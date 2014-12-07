@@ -1,21 +1,25 @@
 <template name="settings">
 	<div>
 		Merchant name<br>
-		<input type="text" name="merchantName">
+		<input type="text" name="merchantName" id="merchantName">
 	</div>
 	<div>
 		Merchant logo (url)<br>
-		<input type="text" name="merchantLogoURL">
+		<input type="text" name="merchantLogo" id="merchantLogo">
 	</div>
 	<div>
 		Commission / Discount<br>
-		<input type="number" name="commission">
+		<input type="number" name="commission" id="commission">
 	</div>
 	<div>
 		Display units<br>
-		<select>
+		<select name="units" id="units">
 		  <option value="btc">BTC</option>
 		  <option value="bits">Bits</option>
 		</select>
-	</div>
+	</div><br>
+	<div>
+		<input type="button" name="saveChanges" id="saveChanges" value="Save changes">
+	</div><br>
+	
 </template>
