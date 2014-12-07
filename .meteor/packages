@@ -8,8 +8,8 @@ insecure
 iron:router
 accounts-password
 mizzao:bootstrap-3
+steeve:jquery-qrcode
 aldeed:collection2
 alanning:roles
 steeve:single-page-login
 accounts-ui
-
