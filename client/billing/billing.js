@@ -29,7 +29,7 @@ if (Meteor.isClient) {
 
 			var user = Meteor.users.findOne({_id: Meteor.userId()});
 
-			if (user != null && user.UserProfile != null && user.UserProfile.merchantName) return user.UserProfile.merchantName;
+			if (user != null && user.profile != null && user.profile.merchantName) return user.profile.merchantName;
 	
 			return "";
 
@@ -38,7 +38,7 @@ if (Meteor.isClient) {
 
 			var user = Meteor.users.findOne({_id: Meteor.userId()});
 
-			if (user != null && user.UserProfile != null && user.UserProfile.merchantLogo) return user.UserProfile.merchantLogo;
+			if (user != null && user.profile != null && user.profile.merchantLogo) return user.profile.merchantLogo;
 	
 			return "";
 
