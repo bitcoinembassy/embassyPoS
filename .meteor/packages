@@ -4,11 +4,15 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 iron:router
 accounts-base
 accounts-password
 accounts-ui-unstyled
 mizzao:bootstrap-3
+aldeed:autoform
+aldeed:collection2
+autopublish
+alanning:roles
+steeve:single-page-login
 
