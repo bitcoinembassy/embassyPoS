@@ -1,10 +1,8 @@
-Router.configure({
-	layoutTemplate: 'layout'
+Router.route('/', {
+	name: 'home'
 });
 
-Router.route('/', function() {
-	this.render('billing');
-});
+Router.route('/billing');
 
 Router.route('/transactions');
 

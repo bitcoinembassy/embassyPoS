@@ -1,5 +1,0 @@
-AdminConfig = {
-  collections: {
-    Posts: {}
-  }
-};
