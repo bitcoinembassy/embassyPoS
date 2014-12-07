@@ -12,5 +12,5 @@ SinglePageLogin.config({
   routeAfterLogin: '/billing',
   routeAfterSignUp: '/billing',
   forceLogin: true,
-  exceptRoutes: ['home', 'signup']
+  exceptRoutes: ['home', 'signup', 'forgot-password']
 });

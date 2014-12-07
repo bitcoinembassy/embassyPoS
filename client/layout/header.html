@@ -13,26 +13,26 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           {{#if currentUser}}
-            <li>
+            <li class="{{isActiveRoute regex='billing'}}">
               <a href="/billing">Billing</a>
             </li>
-            <li>
+            <li class="{{isActiveRoute regex='transactions'}}">
               <a href="/transactions">Transactions</a>
             </li>
             <li>
               <a href="/account">Account</a>
             </li>
-            <li>
+            <li class="{{isActiveRoute regex='settings'}}">
               <a href="/settings">Settings</a>
             </li>
-            <li>
+            <li class="{{isActiveRoute regex='users'}}">
               <a href="/users">Users</a>
             </li>
-            <li>
+            <li class="{{isActiveRoute regex='merchants'}}">
               <a href="/merchants">Merchants</a>
             </li>
           {{else}}
-            <li class="active">
+            <li class="{{isActiveRoute regex='home'}}">
               <a href="/">Home</a>
             </li>
           {{/if}}
@@ -43,10 +43,10 @@
               <a href="/logout">Log Out</a>
             </li>
           {{else}}
-            <li>
+            <li class="{{isActiveRoute regex='login'}}">
               <a href="/login">Log In</a>
             </li>
-            <li>
+            <li class="{{isActiveRoute regex='signup'}}">
               <a href="/signup">Sign Up</a>
             </li>
           {{/if}}
