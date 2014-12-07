@@ -26,10 +26,22 @@ if (Meteor.isClient) {
 
 	Template.billing.helpers({
 		merchantName: function(){
-			return Meteor.users.findOne({_id: Meteor.userId()}).UserProfile.merchantName;
+
+			var user = Meteor.users.findOne({_id: Meteor.userId()});
+
+			if (user != null && user.UserProfile != null && user.UserProfile.merchantName) return user.UserProfile.merchantName;
+	
+			return "";
+
 		},
 		merchantLogo: function(){
-			return Meteor.users.findOne({_id: Meteor.userId()}).UserProfile.merchantLogo;
+
+			var user = Meteor.users.findOne({_id: Meteor.userId()});
+
+			if (user != null && user.UserProfile != null && user.UserProfile.merchantLogo) return user.UserProfile.merchantLogo;
+	
+			return "";
+
 		},
 		rate: function(){
 			return "423";

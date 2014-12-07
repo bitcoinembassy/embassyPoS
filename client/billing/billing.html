@@ -3,7 +3,9 @@
 		<h1>{{ merchantName}}</h1>
 	</div>
 	<div>
-		<img src="{{ merchantLogo}}" width=300>
+		{{#if merchantLogo}}
+			<img src="{{ merchantLogo}}" width=300>
+		{{/if}}
 	</div>
 	<div>
 		Current rate: {{ rate}} CAD / BTC
