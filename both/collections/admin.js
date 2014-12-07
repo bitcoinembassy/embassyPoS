@@ -1,0 +1,5 @@
+AdminConfig = {
+  collections: {
+    Posts: {}
+  }
+};
