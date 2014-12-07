@@ -1,6 +1,9 @@
+
 if (Meteor.isClient) {
 
-	Meteor.subscribe('userdata');
+	Meteor.autosubscribe(function (){
+	  Meteor.subscribe("userdata")  
+	})
 
 	var generateQrCode = function (btcAmount, template){
 
@@ -44,7 +47,15 @@ if (Meteor.isClient) {
 
 		},
 		rate: function(){
-			return "423";
+			
+			var currentRate = Rates.findOne();
+
+			console.log(currentRate);
+
+			if (currentRate != null) return currentRate.data.bid;
+	
+			return "";
+
 		},
 		address: function(){
 			return "1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK";
