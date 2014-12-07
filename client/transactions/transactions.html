@@ -4,12 +4,11 @@
 		Start <input type="date" name="dateStart">
 		End <input type="date" name="dateEnd">
 	</div>
-	<div>
 
-		Transactions<br>
+	<h1>Transactions</h1>
 
-		<table border=1>
-
+	<table class="table table-striped">
+		<thead>
 			<tr>
 				<td>Date</td>
 				<td>Time</td>
@@ -19,22 +18,21 @@
 				<td>txID</td>
 				<td>Status</td>
 			</tr>
-
-		{{#each transactions}}
-			<tr>
-				<td>{{date}}</td>
-				<td>{{time}}</td>
-				<td>{{amountCAD}}</td>
-				<td>{{amountBTC}}</td>
-				<td>{{address}}</td>
-				<td>{{txID}}</td>
-				<td>{{status}}</td>
-			</tr>
-		{{else}}
-			<tr><td colspan=7>No transactions found.</td></tr>
-		{{/each}}
-		
-		</table>
-
-	</div>
+		</thead>
+		<tbody>
+			{{#each transactions}}
+				<tr>
+					<td>{{date}}</td>
+					<td>{{time}}</td>
+					<td>{{amountCAD}}</td>
+					<td>{{amountBTC}}</td>
+					<td>{{address}}</td>
+					<td>{{txID}}</td>
+					<td>{{status}}</td>
+				</tr>
+			{{else}}
+				<tr><td colspan=7>No transactions found.</td></tr>
+			{{/each}}
+		</tbody>
+	</table>
 </template>
