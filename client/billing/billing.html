@@ -1,15 +1,15 @@
 <template name="billing">
 	<div>
-		{{ merchant}}
+		{{ merchantName}}
 	</div>
 	<div>
-		{{ merchantLogo}}
+		<img src="{{ merchantLogo}}" width=300>
 	</div>
 	<div>
 		Current rate: {{ rate}} CAD / BTC
 	</div>
 	<div>
-		Amount <input type="number" id="amount"> $ CAD
+		Amount <input type="number" id="amount" value="0"> $ CAD
 	</div>
 	<div>
 		<input type="radio" name="tip" value="0" checked="true"> 0%

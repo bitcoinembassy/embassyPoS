@@ -1,11 +1,13 @@
 if (Meteor.isClient) {
 
+	Meteor.subscribe('userdata');
+
 	var generateQrCode = function (btcAmount, template){
 
     	var qrcode = "bitcoin:1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK?amount=" + btcAmount;
 
     	$('#qr').empty();
-    	$('#qr').qrcode({text: qrcode, width: 200,height: 200,});
+    	$('#qr').qrcode({text: qrcode, width: 300,height: 300,});
 
 	}
 
@@ -23,11 +25,11 @@ if (Meteor.isClient) {
 	}
 
 	Template.billing.helpers({
-		merchant: function(){
-			return "Some dude";
+		merchantName: function(){
+			return Meteor.users.findOne({_id: Meteor.userId()}).UserProfile.merchantName;
 		},
 		merchantLogo: function(){
-			return "Some dude's logo";
+			return Meteor.users.findOne({_id: Meteor.userId()}).UserProfile.merchantLogo;
 		},
 		rate: function(){
 			return "423";
