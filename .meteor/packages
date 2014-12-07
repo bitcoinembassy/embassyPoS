@@ -16,3 +16,8 @@ accounts-ui
 zimme:iron-router-active
 http
 
+
+npm-container
+joncursi:socket-io-client
+meteorhacks:npm
+

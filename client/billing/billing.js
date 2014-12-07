@@ -7,7 +7,7 @@ if (Meteor.isClient) {
 
 	var generateQrCode = function (btcAmount, template){
 
-    	var qrcode = "bitcoin:1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK?amount=" + btcAmount;
+    	var qrcode = "bitcoin:1NUzDGxfweYooDgqVhTryaaccto4e2bKRp?amount=" + btcAmount;
 
     	$('#qr').empty();
     	$('#qr').qrcode({text: qrcode, width: 300,height: 300,});
@@ -58,7 +58,7 @@ if (Meteor.isClient) {
 
 		},
 		address: function(){
-			return "1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK";
+			return "1NUzDGxfweYooDgqVhTryaaccto4e2bKRp";
 		},
 		status: function(){
 			return "Some status";
@@ -69,7 +69,7 @@ if (Meteor.isClient) {
 	});
 
   Template.billing.rendered = function(){
-    $('#qr').qrcode({text: 'bitcoin:1EXLg1tsC5jWA1TAYZy3hWFhgrxQgiNHAK?amount=0.00000000', width: 300, height: 300});
+    $('#qr').qrcode({text: 'bitcoin:1NUzDGxfweYooDgqVhTryaaccto4e2bKRp?amount=0.00000000', width: 300, height: 300});
   };
 
   Template.billing.events({
