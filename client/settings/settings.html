@@ -2,18 +2,19 @@
 	<div class="page-header">
 		<h1>Settings</h1>
 	</div>
+	{{#with currentUser.profile}}
 	<form role="form">
 		<div class="form-group">
 			<label for="merchantName">Merchant name</label>
-			<input type="text" class="form-control" id="merchantName">
+			<input type="text" class="form-control" id="merchantName" value="{{merchantName}}">
 		</div>
 		<div class="form-group">
 			<label for="merchantLogo">Merchant logo (url)</label>
-			<input type="text" class="form-control" id="merchantLogo">
+			<input type="text" class="form-control" id="merchantLogo" value="{{merchantLogo}}">
 		</div>
 		<div class="form-group">
 			<label for="commission">Commission / Discount</label>
-			<input type="number" class="form-control" id="commission">
+			<input type="number" class="form-control" id="commission" value="{{commission}}">
 		</div>
 		<div class="form-group">
 			<label for="units">Display units</label>
@@ -24,4 +25,5 @@
 		</div>
 		<button type="button" class="btn btn-default" id="saveChanges">Save changes</button>
 	</form>
+	{{/with}}
 </template>
