@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "ws": {
+      "version": "0.6.2",
+      "dependencies": {
+        "nan": {
+          "version": "1.4.1"
+        },
+        "options": {
+          "version": "0.0.6"
+        },
+        "ultron": {
+          "version": "1.0.1"
+        }
+      }
+    }
+  }
+}
