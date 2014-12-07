@@ -6,19 +6,21 @@
 		{{ merchantLogo}}
 	</div>
 	<div>
-		{{ rate}}
+		Current rate: {{ rate}} CAD / BTC
 	</div>
 	<div>
-		Amount <input type="number" name="amount">
+		Amount <input type="number" id="amount">
 	</div>
 	<div>
+		<input type="radio" name="tip" value="0" checked="true"> 0%
 		<input type="radio" name="tip" value="5"> 5%
 		<input type="radio" name="tip" value="10"> 10%
 		<input type="radio" name="tip" value="15"> 15%
 		<input type="radio" name="tip" value="20"> 20%
 	</div>
 	<div>
-		{{ qrCode}}
+		Please send <label id="btcAmount"></label>  {{ unit}} to:<br>
+		<div id="qr"></div>
 	</div>
 	<div>
 		{{ address}}

@@ -11,4 +11,5 @@ accounts-base
 accounts-password
 accounts-ui-unstyled
 mizzao:bootstrap-3
+steeve:jquery-qrcode
 
