@@ -8,7 +8,7 @@ if (Meteor.isServer){
 
 		HTTP.get("https://api.bitcoinaverage.com/ticker/global/all", function(err, res){
 			
-			console.log(res.data.CAD);
+			console.log("Data polled:", res.data.CAD);
 
 			Rates.upsert({
 				currency: "CAD"
