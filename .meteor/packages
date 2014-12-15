@@ -18,6 +18,4 @@ http
 
 
 npm-container
-joncursi:socket-io-client
 meteorhacks:npm
-

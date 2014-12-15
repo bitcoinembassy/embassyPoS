@@ -1,33 +1,39 @@
 <template name="billing">
-	<div class="page-header">
-		<h1>{{ merchantName}}</h1>
-	</div>
-	<div>
-		{{#if merchantLogo}}
-			<img src="{{ merchantLogo}}" width=300>
-		{{/if}}
-	</div>
-	<div>
-		Current rate: {{ rate}} CAD / BTC
-	</div>
-	<div>
-		Amount <input type="number" id="amount" value="0"> $ CAD
-	</div>
-	<div>
-		<input type="radio" name="tip" value="0" checked="true"> 0%
-		<input type="radio" name="tip" value="5"> 5%
-		<input type="radio" name="tip" value="10"> 10%
-		<input type="radio" name="tip" value="15"> 15%
-		<input type="radio" name="tip" value="20"> 20%
-	</div>
-	<div>
-		Please send <label id="btcAmount"></label>  {{ unit}} to:<br>
-		<div id="qr"></div>
-	</div>
-	<div>
-		{{ address}}
-	</div>
-	<div>
-		{{ status}}
-	</div>
+
+    {{#if currentUser}}
+
+		<div class="page-header">
+			<h1>{{ merchantName}}</h1>
+		</div>
+		<div>
+			{{#if merchantLogo}}
+				<img src="{{ merchantLogo}}" width=300>
+			{{/if}}
+		</div>
+		<div>
+			Current rate: {{ rate}} CAD / BTC
+		</div>
+		<div>
+			Amount <input type="number" id="amount" value="0"> $ CAD
+		</div>
+		<div>
+			<input type="radio" name="tip" value="0" checked="true"> 0%
+			<input type="radio" name="tip" value="5"> 5%
+			<input type="radio" name="tip" value="10"> 10%
+			<input type="radio" name="tip" value="15"> 15%
+			<input type="radio" name="tip" value="20"> 20%
+		</div>
+		<div>
+			Please send <label id="btcAmount"></label>  {{ unit}} to:<br>
+			<div id="qr"></div>
+		</div>
+		<div>
+			{{ address}}
+		</div>
+		<div>
+			{{ status}}
+		</div>
+
+    {{/if}}
+
 </template>

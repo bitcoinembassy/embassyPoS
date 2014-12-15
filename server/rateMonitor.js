@@ -8,18 +8,22 @@ if (Meteor.isServer){
 
 		HTTP.get("https://api.bitcoinaverage.com/ticker/global/all", function(err, res){
 			
-			console.log("Data polled:", res.data.CAD);
+			if (res.data && res.data.CAD){
 
-			Rates.upsert({
-				currency: "CAD"
-			},
-			{
-				$set: {
-					currency: "CAD",
-					data: res.data.CAD,
-					time: Date.now()
-				}
-			});
+				console.log("Data polled:", res.data.CAD);
+
+				Rates.upsert({
+					currency: "CAD"
+				},
+				{
+					$set: {
+						currency: "CAD",
+						data: res.data.CAD,
+						time: Date.now()
+					}
+				});
+
+			}
 		
 		});
 

@@ -9,10 +9,11 @@ if (Meteor.isServer){
 		var connect = function(){
 
 			var WebSocket = Meteor.npmRequire("ws");
-			var ws = new WebSocket('ws://ws.blockchain.info/inv');
-		
+			self.ws = new WebSocket('wss://ws.blockchain.info/inv');
+
 			ws.on('open', function(){
 				
+				//TODO : add rest support to verify balances upon connection / reconnection
 				console.log("Blockchain.info socket open.");
 				
 				self.open = true;
@@ -41,7 +42,6 @@ if (Meteor.isServer){
 
         		setTimeout(connect, 2000);
 
-
 			});
 
 			ws.on('error', function(err){
@@ -67,7 +67,7 @@ if (Meteor.isServer){
 	      				var addressDoc = Addresses.findOne({address: o.x.out[index].addr});
 
 						if (addressDoc != null){
-							Addresses.update({address: o.x.out[index].addr}, {$set: {amount: o.x.out[index].value, hash: o.x.hash}});
+							Addresses.update({address: o.x.out[index].addr}, {$set: {amountReceived: o.x.out[index].value, hash: o.x.hash}});
 						}
 
 					}).run();
@@ -76,14 +76,13 @@ if (Meteor.isServer){
 
 			});
 
-		}
 
-		connect();
+		}
 
 		Addresses.find().observe({
 			added: function (document) {
-				if (self.open){
-					ws.send(JSON.stringify({"op":"addr_sub", "addr": document.address}));
+				if (self.open && self.ws){
+					self.ws.send(JSON.stringify({"op":"addr_sub", "addr": document.address}));
 					console.log("Now monitoring address:", document.address);
 				}
 			},
@@ -91,6 +90,8 @@ if (Meteor.isServer){
 
 			}
 		});
+
+		connect();
 
 	});
 

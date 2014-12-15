@@ -1,30 +1,36 @@
 <template name="settings">
-	<div class="page-header">
-		<h1>Settings</h1>
-	</div>
-	{{#with currentUser}}
-	<form role="form">
-		<div class="form-group">
-			<label for="merchantName">Merchant name</label>
-			<input type="text" class="form-control" id="merchantName" value="{{profile.merchantName}}">
+
+    {{#if currentUser}}
+
+		<div class="page-header">
+			<h1>Settings</h1>
 		</div>
-		<div class="form-group">
-			<label for="merchantLogo">Merchant logo (url)</label>
-			<input type="text" class="form-control" id="merchantLogo" value="{{profile.merchantLogo}}">
-		</div>
-		<div class="form-group">
-			<label for="commission">Commission / Discount</label>
-			<input type="number" class="form-control" id="commission" value="{{profile.commission}}">
-		</div>
-		<div class="form-group">
-			<label for="units">Display units</label>
-			<select class="form-control" id="units">
-				{{#each unitTypes}}
-					<option value="{{ value}}" {{ isSelected}}>{{ caption}}</option>
-				{{/each}}
-			</select>
-		</div>
-		<button type="button" class="btn btn-default" id="saveChanges">Save changes</button>
-	</form>
-	{{/with}}
+		{{#with currentUser}}
+		<form role="form">
+			<div class="form-group">
+				<label for="merchantName">Merchant name</label>
+				<input type="text" class="form-control" id="merchantName" value="{{profile.merchantName}}">
+			</div>
+			<div class="form-group">
+				<label for="merchantLogo">Merchant logo (url)</label>
+				<input type="text" class="form-control" id="merchantLogo" value="{{profile.merchantLogo}}">
+			</div>
+			<div class="form-group">
+				<label for="commission">Commission / Discount</label>
+				<input type="number" class="form-control" id="commission" value="{{profile.commission}}">
+			</div>
+			<div class="form-group">
+				<label for="units">Display units</label>
+				<select class="form-control" id="units">
+					{{#each unitTypes}}
+						<option value="{{ value}}" {{ isSelected}}>{{ caption}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<button type="button" class="btn btn-default" id="saveChanges">Save changes</button>
+		</form>
+		{{/with}}
+
+	{{/if}}
+	
 </template>
