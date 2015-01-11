@@ -10,6 +10,7 @@
 				<img src="{{ merchantLogo}}" width=300>
 			{{/if}}
 		</div>
+
 		<div>
 			Current rate: {{ rate}} CAD / BTC
 		</div>
@@ -17,21 +18,11 @@
 			Amount <input type="number" id="amount" value="0"> $ CAD
 		</div>
 		<div>
-			<input type="radio" name="tip" value="0" checked="true"> 0%
-			<input type="radio" name="tip" value="5"> 5%
-			<input type="radio" name="tip" value="10"> 10%
-			<input type="radio" name="tip" value="15"> 15%
-			<input type="radio" name="tip" value="20"> 20%
+			<label id="btcAmount"></label>  {{ unit}} <br>
 		</div>
 		<div>
-			Please send <label id="btcAmount"></label>  {{ unit}} to:<br>
-			<div id="qr"></div>
-		</div>
-		<div>
-			{{ address}}
-		</div>
-		<div>
-			{{ status}}
+			<input type="button" id="billingOk" value="Ok"> 
+			<input type="button" id="billingCancel" value="Cancel">
 		</div>
 
     {{/if}}

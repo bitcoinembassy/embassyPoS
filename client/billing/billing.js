@@ -16,14 +16,26 @@ if (Meteor.isClient) {
 
 	var recalculateAmount = function (template){
 
-		var rate = 423; //get rate from server
+		var rate = getRate(); //get rate from server
     	var cadAmount = template.find("#amount").value.toString();
-    	var tipAmount = template.find("input:radio[name=tip]:checked").value.toString();
-    	var btcAmount = Math.round((cadAmount * (1+(tipAmount/100)) / rate) * 10000)  / 10000;;
+    	//var tipAmount = template.find("input:radio[name=tip]:checked").value.toString();
+    	var btcAmount = Math.round((cadAmount / rate) * 10000)  / 10000;;
 
-    	document.getElementById("btcAmount").innerHTML = btcAmount;
+    	template.find("#btcAmount").innerHTML = btcAmount;
 
     	return btcAmount;
+
+	}
+
+	var getRate = function() {
+
+		var currentRate = Rates.findOne();
+
+		console.log(currentRate);
+
+		if (currentRate != null) return currentRate.data.bid;
+	
+		return "";
 
 	}
 
@@ -47,15 +59,7 @@ if (Meteor.isClient) {
 
 		},
 		rate: function(){
-			
-			var currentRate = Rates.findOne();
-
-			console.log(currentRate);
-
-			if (currentRate != null) return currentRate.data.bid;
-	
-			return "";
-
+			return getRate();
 		},
 		address: function(){
 			return "1NUzDGxfweYooDgqVhTryaaccto4e2bKRp";
@@ -80,7 +84,19 @@ if (Meteor.isClient) {
     'change ': function (event, template) {
     	var btcAmount = recalculateAmount(template);
     	generateQrCode(btcAmount, template);
+    },
+    'click #billingOk ': function (event, template) {
+
+    	Session.set("rate", getRate());
+    	Session.set("amountCAD", template.find("#amount").value);
+
+    	Router.go('payment');
+
+    },
+    'click #billingCancel ': function (event, template) {
+		Router.go('/');
     }
+
 
   });
 

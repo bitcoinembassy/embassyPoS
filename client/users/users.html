@@ -8,27 +8,29 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td>Name</td>
+					<td>User</td>
 					<td>Status</td>
 					<td>View user</td>
+					<td>Suspend user</td>
 					<td>Remove user</td>
 				</tr>
 			</thead>
 			<tbody>
-				{{#each users}}
+				{{#each usersList}}
 					<tr>
-						<td>{{ userName}}</td>
+						<td>{{ userAddress}}</td>
 						<td>{{ userStatus}}</td>
 						<td><input type="button" name="viewUser" value="View user"></td>
+						<td><input type="button" name="suspendUser" value="Suspend user"></td>
 						<td><input type="button" name="deleteUser" value="Delete user"></td>
 					</tr>
 				{{else}}
-					<tr><td colspan=4>No users found.</td></tr>
+					<tr><td colspan=5>No users found.</td></tr>
 				{{/each}}
 			</tbody>
 		</table>
 		<button type="button" class="btn btn-default" name="addUser">Add new user</button>
 
 	{{/if}}
-
+	
 </template>

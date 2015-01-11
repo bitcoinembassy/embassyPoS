@@ -11,19 +11,21 @@
 					<td>Name</td>
 					<td>Status</td>
 					<td>View merchant</td>
-					<td>Remove merchant</td>
+					<td>Suspend account</td>
+					<td>Delete account</td>
 				</tr>
 			</thead>
 			<tbody>
-				{{#each merchant}}
+				{{#each merchantsList}}
 					<tr>
 						<td>{{ merchantName}}</td>
 						<td>{{ merchantStatus}}</td>
 						<td><input type="button" name="viewMerchant" value="View merchant"></td>
-						<td><input type="button" name="deleteMerchant" value="Delete merchant"></td>
+						<td><input type="button" name="suspendAccount" value="Suspend account"></td>
+						<td><input type="button" name="deleteAccount" value="Delete account"></td>
 					</tr>
 				{{else}}
-					<tr><td colspan=4>No merchants found.</td></tr>
+					<tr><td colspan=5>No merchants found.</td></tr>
 				{{/each}}
 			</tbody>
 		</table>

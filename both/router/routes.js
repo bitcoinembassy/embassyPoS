@@ -4,6 +4,8 @@ Router.route('/', {
 
 Router.route('/billing');
 
+Router.route('/payment');
+
 Router.route('/transactions');
 
 Router.route('/account');
