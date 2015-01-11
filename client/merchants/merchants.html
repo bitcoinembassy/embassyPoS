@@ -9,6 +9,7 @@
 			<thead>
 				<tr>
 					<td>Name</td>
+					<td>Email</td>
 					<td>Status</td>
 					<td>View merchant</td>
 					<td>Suspend account</td>
@@ -19,6 +20,7 @@
 				{{#each merchantsList}}
 					<tr>
 						<td>{{ merchantName}}</td>
+						<td>{{ merchantEmail}}</td>
 						<td>{{ merchantStatus}}</td>
 						<td><input type="button" name="viewMerchant" value="View merchant"></td>
 						<td><input type="button" name="suspendAccount" value="Suspend account"></td>

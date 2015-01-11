@@ -15,6 +15,15 @@ Template.merchants.helpers({
 		return "";
 
 	},
+	merchantEmail: function(){
+
+		var user = Meteor.users.findOne({_id: this._id});
+
+		if (user != null && user.emails != null && user.emails[0].address) return user.emails[0].address;
+	
+		return "";
+
+	},
 	merchantStatus: function(){
 
 		var user = Meteor.users.findOne({_id: this._id});

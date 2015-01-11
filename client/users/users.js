@@ -1,6 +1,15 @@
 Meteor.subscribe("userData");
 
 Template.users.helpers({
+	currentMerchant: function(){
+
+		var user = Meteor.users.findOne({_id: getMerchantID()});
+
+		if (user != null && user.profile != null && user.profile.merchantName) return user.profile.merchantName;
+	
+		return "";
+
+	},
 	usersList: function(){
 
 		var users = Meteor.users.find({"profile.merchantID": Meteor.userId()}).fetch();
@@ -27,3 +36,22 @@ Template.users.helpers({
 
 	}	
 });
+
+var getMerchantID = function(){
+
+	var merchantID = Session.get("merchantID");
+
+	console.log(merchantID);
+
+	if (!merchantID)
+		merchantID = Meteor.userId();
+
+	console.log(merchantID);
+
+	return merchantID;
+
+}
+
+Template.users.rendered = function(){
+	return getMerchantID();
+};
