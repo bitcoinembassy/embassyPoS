@@ -5,20 +5,11 @@ if (Meteor.isClient) {
 	  Meteor.subscribe("userdata")  
 	})
 
-	var generateQrCode = function (btcAmount, template){
-
-    	var qrcode = "bitcoin:1NUzDGxfweYooDgqVhTryaaccto4e2bKRp?amount=" + btcAmount;
-
-    	$('#qr').empty();
-    	$('#qr').qrcode({text: qrcode, width: 300,height: 300,});
-
-	}
-
 	var recalculateAmount = function (template){
 
-		var rate = getRate(); //get rate from server
+		var rate = getRate();
     	var cadAmount = template.find("#amount").value.toString();
-    	//var tipAmount = template.find("input:radio[name=tip]:checked").value.toString();
+
     	var btcAmount = Math.round((cadAmount / rate) * 10000)  / 10000;;
 
     	template.find("#btcAmount").innerHTML = btcAmount;
@@ -60,43 +51,30 @@ if (Meteor.isClient) {
 		},
 		rate: function(){
 			return getRate();
-		},
-		address: function(){
-			return "1NUzDGxfweYooDgqVhTryaaccto4e2bKRp";
-		},
-		status: function(){
-			return "Some status";
-		},
-		unit: function(){
-			return "BTC";
 		}
 	});
 
-  Template.billing.rendered = function(){
-    $('#qr').qrcode({text: 'bitcoin:1NUzDGxfweYooDgqVhTryaaccto4e2bKRp?amount=0.00000000', width: 300, height: 300});
-  };
+	Template.payment.rendered = function(){
+    	recalculateAmount(this);
+	};
 
-  Template.billing.events({
-    'keyup #amount': function(event, template){
-    	var btcAmount = recalculateAmount(template);
-    	generateQrCode(btcAmount, template);
-    },
-    'change ': function (event, template) {
-    	var btcAmount = recalculateAmount(template);
-    	generateQrCode(btcAmount, template);
-    },
-    'click #billingOk ': function (event, template) {
+	Template.billing.events({
+		'keyup #amount': function(event, template){
+			
+			var btcAmount = recalculateAmount(template);
 
-    	Session.set("rate", getRate());
-    	Session.set("amountCAD", template.find("#amount").value);
+    	},
+    	'click #billingOk ': function (event, template) {
 
-    	Router.go('payment');
+    		Session.set("rate", getRate());
+    		Session.set("amountCAD", template.find("#amount").value);
 
-    },
-    'click #billingCancel ': function (event, template) {
-		Router.go('/');
-    }
+    		Router.go('payment');
 
+    	},
+    	'click #billingCancel ': function (event, template) {
+			Router.go('/');
+    	}
 
   });
 
