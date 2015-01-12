@@ -1,5 +1,188 @@
 {
   "dependencies": {
+    "bitcoinjs-lib": {
+      "version": "1.4.3",
+      "dependencies": {
+        "bigi": {
+          "version": "1.4.0"
+        },
+        "bs58check": {
+          "version": "1.0.3",
+          "dependencies": {
+            "bs58": {
+              "version": "2.0.1"
+            }
+          }
+        },
+        "crypto-browserify": {
+          "version": "3.9.2",
+          "dependencies": {
+            "browserify-aes": {
+              "version": "0.8.1",
+              "dependencies": {
+                "inherits": {
+                  "version": "2.0.1"
+                }
+              }
+            },
+            "create-ecdh": {
+              "version": "1.0.3",
+              "dependencies": {
+                "bn.js": {
+                  "version": "1.0.0"
+                },
+                "elliptic": {
+                  "version": "1.0.1",
+                  "dependencies": {
+                    "brorand": {
+                      "version": "1.0.5"
+                    },
+                    "hash.js": {
+                      "version": "1.0.2"
+                    },
+                    "inherits": {
+                      "version": "2.0.1"
+                    }
+                  }
+                }
+              }
+            },
+            "diffie-hellman": {
+              "version": "2.2.3",
+              "dependencies": {
+                "bn.js": {
+                  "version": "1.0.0"
+                },
+                "miller-rabin": {
+                  "version": "1.1.5",
+                  "dependencies": {
+                    "brorand": {
+                      "version": "1.0.5"
+                    }
+                  }
+                }
+              }
+            },
+            "browserify-sign": {
+              "version": "2.7.5",
+              "dependencies": {
+                "bn.js": {
+                  "version": "1.0.0"
+                },
+                "browserify-rsa": {
+                  "version": "1.1.1"
+                },
+                "elliptic": {
+                  "version": "1.0.1",
+                  "dependencies": {
+                    "brorand": {
+                      "version": "1.0.5"
+                    },
+                    "hash.js": {
+                      "version": "1.0.2"
+                    }
+                  }
+                },
+                "inherits": {
+                  "version": "2.0.1"
+                },
+                "parse-asn1": {
+                  "version": "2.0.0",
+                  "dependencies": {
+                    "asn1.js": {
+                      "version": "1.0.2",
+                      "dependencies": {
+                        "minimalistic-assert": {
+                          "version": "1.0.0"
+                        }
+                      }
+                    },
+                    "asn1.js-rfc3280": {
+                      "version": "1.0.0"
+                    },
+                    "pemstrip": {
+                      "version": "0.0.1"
+                    }
+                  }
+                }
+              }
+            },
+            "pbkdf2-compat": {
+              "version": "2.0.1"
+            },
+            "public-encrypt": {
+              "version": "1.1.2",
+              "dependencies": {
+                "bn.js": {
+                  "version": "1.0.0"
+                },
+                "browserify-rsa": {
+                  "version": "1.1.1"
+                },
+                "parse-asn1": {
+                  "version": "2.0.0",
+                  "dependencies": {
+                    "asn1.js": {
+                      "version": "1.0.2",
+                      "dependencies": {
+                        "inherits": {
+                          "version": "2.0.1"
+                        },
+                        "minimalistic-assert": {
+                          "version": "1.0.0"
+                        }
+                      }
+                    },
+                    "asn1.js-rfc3280": {
+                      "version": "1.0.0"
+                    },
+                    "pemstrip": {
+                      "version": "0.0.1"
+                    }
+                  }
+                }
+              }
+            },
+            "ripemd160": {
+              "version": "0.2.0"
+            },
+            "sha.js": {
+              "version": "2.3.1",
+              "dependencies": {
+                "inherits": {
+                  "version": "2.0.1"
+                }
+              }
+            }
+          }
+        },
+        "ecurve": {
+          "version": "1.0.0"
+        },
+        "typeforce": {
+          "version": "0.1.0"
+        }
+      }
+    },
+    "hdkey": {
+      "version": "0.4.0",
+      "dependencies": {
+        "bigi": {
+          "version": "1.4.0"
+        },
+        "ecurve": {
+          "version": "1.0.0"
+        },
+        "coinstring": {
+          "version": "2.2.0",
+          "dependencies": {
+            "bs58": {
+              "version": "2.0.1"
+            }
+          }
+        }
+      }
+    },
     "ws": {
       "version": "0.6.2",
       "dependencies": {

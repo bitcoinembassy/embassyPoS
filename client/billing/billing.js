@@ -54,13 +54,14 @@ if (Meteor.isClient) {
 		}
 	});
 
-	Template.payment.rendered = function(){
+	Template.billing.rendered = function(){
     	recalculateAmount(this);
+    	this.innerHTML += "TATA<script></script>";
 	};
 
 	Template.billing.events({
 		'keyup #amount': function(event, template){
-			
+
 			var btcAmount = recalculateAmount(template);
 
     	},
@@ -74,6 +75,13 @@ if (Meteor.isClient) {
     	},
     	'click #billingCancel ': function (event, template) {
 			Router.go('/');
+    	},
+    	'click #test ': function (event, template) {
+			
+	    	Meteor.call("test", function(err, result){
+
+	    	});
+
     	}
 
   });
