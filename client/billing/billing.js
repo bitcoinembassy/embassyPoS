@@ -56,7 +56,6 @@ if (Meteor.isClient) {
 
 	Template.billing.rendered = function(){
     	recalculateAmount(this);
-    	this.innerHTML += "TATA<script></script>";
 	};
 
 	Template.billing.events({
@@ -84,6 +83,6 @@ if (Meteor.isClient) {
 
     	}
 
-  });
+  	});
 
 }

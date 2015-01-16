@@ -19,3 +19,9 @@ Router.route('/merchants');
 Router.route('/viewUser');
 
 Router.route('/viewMerchant');
+
+Router.route('/signout', function(){
+	
+	Meteor.logout();
+
+});

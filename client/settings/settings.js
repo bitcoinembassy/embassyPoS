@@ -1,5 +1,7 @@
 Status = new Meteor.Collection(null);
 
+Meteor.subscribe("xpubkey");
+
 Template.settings.helpers({
 	unitTypes: function (){
 
@@ -9,6 +11,35 @@ Template.settings.helpers({
 		];
 
 	    return unitTypes;
+
+    },
+	isAdmin: function (){
+
+		var isAdmin;
+
+    	var user = Meteor.users.findOne({_id: Meteor.userId()});
+
+    	if (user != null && user.profile != null && user.profile.role){
+			if (user.profile.role == "admin")
+				return true;
+			else
+				return false;
+    	}
+
+	    return isAdmin;
+
+    },
+	xpubkey: function (){
+
+    	var settings = Settings.findOne();
+
+    	console.log(settings);
+
+    	if (settings != null && settings.xpubkey){
+			return settings.xpubkey;
+    	}
+
+	    return "";
 
     },
     isSelected: function (){

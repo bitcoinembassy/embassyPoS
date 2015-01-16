@@ -4,7 +4,7 @@ if (Meteor.isClient) {
 
 	var generateQrCode = function (btcAmount){
 
-    	var qrcode = "bitcoin:1NUzDGxfweYooDgqVhTryaaccto4e2bKRp?amount=" + btcAmount;
+    	var qrcode = "bitcoin:" + Session.get("address") + "?amount=" + btcAmount;
 
     	$('#qr').empty();
     	$('#qr').qrcode({text: qrcode, width: 300,height: 300,});
@@ -22,6 +22,23 @@ if (Meteor.isClient) {
     	self.template.find("#btcAmount").innerHTML = btcAmount;
 
     	return btcAmount;
+
+	}
+
+	var getAddress = function(){
+
+		Meteor.call("deriveNextPublicAddress", Meteor.userId(), function(err, result){
+			
+			Session.set("address", result);
+
+		    generateQrCode(btcAmount);
+
+		    if (self.handle)
+		    	Meteor.clearTimeout(self.handle);
+
+		    invoiceTick();
+
+  	    });
 
 	}
 
@@ -54,7 +71,10 @@ if (Meteor.isClient) {
 
 			self.tick+=1000;
 
-			setTimeout(invoiceTick, 1000);
+	    	if (self.handle)
+	    		Meteor.clearTimeout(self.handle);
+
+		    self.handle = Meteor.setTimeout(invoiceTick, 1000);
 
 		}
 
@@ -79,14 +99,14 @@ if (Meteor.isClient) {
 			return "";
 
 		},
+		address: function(){
+			return Session.get("address");
+		},
 		rate: function(){
 			return Session.get("rate");
 		},
 		amountCAD: function(){
 			return Session.get("amountCAD");
-		},
-		address: function(){
-			return "1NUzDGxfweYooDgqVhTryaaccto4e2bKRp";
 		},
 		status: function(){
 			return Session.get("status");
@@ -95,7 +115,15 @@ if (Meteor.isClient) {
 			return "BTC";
 		}
 
-	}) 
+	})
+
+	Template.payment.created = function(){
+
+		Session.set("address", "");
+
+    	getAddress();
+	    	
+	}
 
 	Template.payment.rendered = function(){
 
@@ -110,9 +138,7 @@ if (Meteor.isClient) {
     	self.template = this;
 
     	var btcAmount = recalculateAmount();
-    	generateQrCode(btcAmount);
 
-    	setTimeout(invoiceTick, 1000);
 	};
 
 	Template.payment.events({

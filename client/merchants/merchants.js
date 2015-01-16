@@ -24,6 +24,15 @@ Template.merchants.helpers({
 		return "";
 
 	},
+	merchantRole: function(){
+
+		var user = Meteor.users.findOne({_id: this._id});
+
+		if (user != null && user.profile != null && user.profile.role) return user.profile.role;
+	
+		return "";
+
+	},
 	merchantStatus: function(){
 
 		var user = Meteor.users.findOne({_id: this._id});
