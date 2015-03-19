@@ -1,7 +1,5 @@
 <template name="settings">
 
-    {{#if currentUser}}
-
 		<div class="page-header">
 			<h1>Settings</h1>
 		</div>
@@ -29,7 +27,7 @@
 						{{/each}}
 					</select>
 				</div>
-				
+
 				{{#if isAdmin}}
 
 					<div class="form-group">
@@ -38,13 +36,10 @@
 					</div>
 
 				{{/if}}
-				
+
 				<button type="button" class="btn btn-default" id="saveChanges">Save changes</button>
 			</form>
 
 		{{/with}}
 
-
-	{{/if}}
-	
 </template>

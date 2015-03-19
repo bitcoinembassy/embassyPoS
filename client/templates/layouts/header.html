@@ -38,18 +38,7 @@
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          {{#if currentUser}}
-            <li>
-              <a href="/signout">Log Out</a>
-            </li>
-          {{else}}
-            <li class="{{isActiveRoute regex='login'}}">
-              <a href="/login">Log In</a>
-            </li>
-            <li class="{{isActiveRoute regex='signup'}}">
-              <a href="/signup">Sign Up</a>
-            </li>
-          {{/if}}
+          {{> loginButtons}}
         </ul>
       </div><!--/.nav-collapse -->
     </div>
